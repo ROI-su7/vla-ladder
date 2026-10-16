@@ -107,7 +107,8 @@ class ToyTableEnv:
         ]
         self.pos = self.rng.uniform(-0.85, 0.85, size=(n, 2))
         self.start_pos = self.pos.copy()
-        self.wrong_idx = (self.target_idx + 1 + self.rng.integers(0, self.n_blocks - 1, size=n)) % self.n_blocks
+        # 走错时去的方块（只有 1 个方块时没有“错误”的方块，就等于目标本身）
+        self.wrong_idx = (self.target_idx + 1 + self.rng.integers(0, max(self.n_blocks - 1, 1), size=n)) % self.n_blocks
         self.detour_steps = self.rng.integers(8, 16, size=n)
         self.t = 0
         self.done = np.zeros(n, dtype=bool)

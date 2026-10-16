@@ -1,0 +1,10 @@
+{
+  "name": "vla-ladder",
+  "image": "mcr.microsoft.com/devcontainers/python:3.11",
+  "postCreateCommand": "pip install --index-url https://download.pytorch.org/whl/cpu torch && pip install -e . jupyterlab",
+  "customizations": {
+    "vscode": {
+      "extensions": ["ms-python.python", "ms-toolsai.jupyter"]
+    }
+  }
+}

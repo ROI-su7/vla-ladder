@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vla-ladder"
+version = "0.1.0"
+description = "VLA 阶梯：从零到自己写一个 VLA（原理 + 代码 + 练习）"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = ["numpy", "torch>=1.13", "matplotlib"]
+
+[project.optional-dependencies]
+dev = ["jupyterlab", "mkdocs-material>=9.5", "pyyaml"]
+
+[tool.setuptools.packages.find]
+include = ["vla_ladder*"]

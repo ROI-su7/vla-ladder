@@ -1,0 +1,138 @@
+site_name: VLA 阶梯 · 从零到自己写一个 VLA
+site_description: 面向小白的 VLA（视觉-语言-动作模型）+ 强化学习 阶梯式学习项目：原理讲解 + 代码 + 在线练习
+site_author: ROI-su7
+site_url: https://roi-su7.github.io/vla-ladder/
+repo_url: https://github.com/ROI-su7/vla-ladder
+repo_name: ROI-su7/vla-ladder
+edit_uri: edit/main/lessons/
+docs_dir: build/docs
+site_dir: build/site
+
+theme:
+  name: material
+  language: zh
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - navigation.indexes
+    - toc.follow
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: deep orange
+      toggle:
+        icon: material/weather-night
+        name: 切换到深色模式
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: deep orange
+      toggle:
+        icon: material/weather-sunny
+        name: 切换到浅色模式
+  icon:
+    repo: fontawesome/brands/github
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - footnotes
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.arithmatex:
+      generic: true
+
+plugins:
+  - search:
+      lang: [zh, en]
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js
+
+extra_css:
+  - stylesheets/extra.css
+
+# ---- nav（由 tools/build.py 自动生成，请勿手改）----
+nav:
+- 首页: index.md
+- 第 0 章 · 导读：怎么用这个项目:
+  - 本章导读: 00_guide/index.md
+  - 0.1 如何使用本项目: 00_guide/0.1_how_to_use.md
+  - 0.2 锻炼代码逻辑思维: 00_guide/0.2_code_thinking.md
+- 第 1 章 · 预备知识：数学、PyTorch 与深度学习基础:
+  - 本章导读: 01_prerequisites/index.md
+  - 1.01 Python 与 NumPy 速成: 01_prerequisites/1.01_python_numpy.md
+  - 1.02 PyTorch 张量（Tensor）: 01_prerequisites/1.02_pytorch_tensor.md
+  - 1.03 线性代数: 01_prerequisites/1.03_linear_algebra.md
+  - 1.04 微积分与自动求导: 01_prerequisites/1.04_calculus_autograd.md
+  - 1.05 概率与统计: 01_prerequisites/1.05_probability.md
+  - 1.06 线性回归与梯度下降：所有训练循环的骨架: 01_prerequisites/1.06_linear_regression.md
+  - 1.07 Softmax 回归与分类: 01_prerequisites/1.07_softmax_classification.md
+  - 1.08 多层感知机（MLP）与训练技巧: 01_prerequisites/1.08_mlp_and_training.md
+  - 1.09 卷积神经网络（CNN）: 01_prerequisites/1.09_cnn.md
+  - 1.10 PyTorch 工程实践：一个"工业级"训练脚本长什么样: 01_prerequisites/1.10_training_pipeline.md
+- 第 2 章 · 强化学习：从贝尔曼方程到 PPO / SAC:
+  - 本章导读: 02_rl/index.md
+  - 2.01 基本概念：状态、动作、奖励、回报与 MDP: 02_rl/2.01_basic_concepts.md
+  - 2.02 贝尔曼方程：如何评价一个策略: 02_rl/2.02_bellman_equation.md
+  - 2.03 贝尔曼最优方程：什么是"最好的策略": 02_rl/2.03_bellman_optimality.md
+  - 2.04 值迭代与策略迭代: 02_rl/2.04_value_policy_iteration.md
+  - 2.05 蒙特卡洛方法：没有模型，就去"试": 02_rl/2.05_monte_carlo.md
+  - 2.06 随机近似：增量更新的数学基础: 02_rl/2.06_stochastic_approximation.md
+  - 2.07 时序差分学习：TD、Sarsa 与 Q-learning: 02_rl/2.07_td_learning.md
+  - 2.08 值函数近似与 DQN: 02_rl/2.08_value_approximation_dqn.md
+  - 2.09 策略梯度：直接优化策略: 02_rl/2.09_policy_gradient.md
+  - 2.10 Actor-Critic：策略梯度 + 值函数: 02_rl/2.10_actor_critic.md
+  - 2.11 PPO：最常用的策略优化算法: 02_rl/2.11_ppo.md
+  - 2.12 SAC：最大熵 off-policy Actor-Critic: 02_rl/2.12_sac.md
+- 第 3 章 · L1 模仿学习：行为克隆及其两大难题:
+  - 本章导读: 03_imitation/index.md
+  - 3.01 行为克隆与 DAgger: 03_imitation/3.01_behavior_cloning.md
+  - 3.02 多模态与动作分块: 03_imitation/3.02_multimodality.md
+- 第 4 章 · L2 Transformer：从注意力到 GPT 与 ViT:
+  - 本章导读: 04_transformer/index.md
+  - 4.01 注意力机制与掩码: 04_transformer/4.01_attention.md
+  - 4.02 Transformer Block：多头注意力、位置编码与前馈网络: 04_transformer/4.02_transformer_block.md
+  - 4.03 从零写 GPT：语言模型、采样与 KV Cache: 04_transformer/4.03_gpt_from_scratch.md
+  - 4.04 Vision Transformer：让 Transformer 看图: 04_transformer/4.04_vit.md
+- 第 5 章 · L3 ACT：CVAE + Transformer + 动作分块:
+  - 本章导读: 05_act/index.md
+  - 5.01 VAE 与 CVAE：用隐变量表示"多种做法": 05_act/5.01_vae_cvae.md
+  - 5.02 从零实现 ACT: 05_act/5.02_act.md
+- 第 6 章 · L4 生成式策略：扩散模型与流匹配:
+  - 本章导读: 06_generative_policy/index.md
+  - 6.01 扩散模型（DDPM）: 06_generative_policy/6.01_ddpm.md
+  - 6.02 Diffusion Policy：用扩散模型生成动作块: 06_generative_policy/6.02_diffusion_policy.md
+  - 6.03 流匹配：π0 的动作头: 06_generative_policy/6.03_flow_matching.md
+- 第 7 章 · L5 VLA：从零写一个 mini-π0:
+  - 本章导读: 07_vla/index.md
+  - 7.01 VLM 是怎么"看图读字"的: 07_vla/7.01_vlm_basics.md
+  - 7.02 π0 架构精读：动作专家与共享注意力: 07_vla/7.02_pi0_architecture.md
+  - 7.03 训练 mini-π0：两阶段训练与评估: 07_vla/7.03_train_mini_pi0.md
+  - 7.04 读懂工业级代码库：openpi、FluxVLA 与实时分块（RTC）: 07_vla/7.04_codebase_reading.md
+- 第 8 章 · L6 VLA + RL：让 VLA 超越示教:
+  - 本章导读: 08_vla_rl/index.md
+  - 8.01 VLA + RL 全景：为什么、做什么、怎么选: 08_vla_rl/8.01_vla_rl_overview.md
+  - 8.02 从零实现 RLT：冻结 VLA，用小网络学"最后一厘米": 08_vla_rl/8.02_rlt.md
+  - 8.03 从零实现 RECAP：用价值函数"挑着学": 08_vla_rl/8.03_recap.md
+  - 8.04 真机落地清单：从"跑通"到"可交付": 08_vla_rl/8.04_real_world.md
